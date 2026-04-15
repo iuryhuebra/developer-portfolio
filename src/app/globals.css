@@ -1,26 +1,184 @@
 @import "tailwindcss";
 
+/* ═══════════════════════════════════════════════════
+   Design System — Dark Mode Cyberpunk Suave
+   ═══════════════════════════════════════════════════ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Backgrounds */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #12121a;
+  --bg-tertiary: #1a1a2e;
+
+  /* Text */
+  --text-primary: #e4e4e7;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+
+  /* Accents */
+  --accent-primary: #00f0ff;
+  --accent-secondary: #7c3aed;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(0, 240, 255, 0.3);
+
+  /* Glow */
+  --glow-sm: 0 0 20px rgba(0, 240, 255, 0.15);
+  --glow-md: 0 0 40px rgba(0, 240, 255, 0.2);
+  --glow-lg: 0 0 60px rgba(0, 240, 255, 0.25);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colors */
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-hover: var(--border-hover);
+
+  /* Fonts */
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+  --font-mono: var(--font-jetbrains-mono);
+
+  /* Shadows */
+  --shadow-glow-sm: var(--glow-sm);
+  --shadow-glow-md: var(--glow-md);
+  --shadow-glow-lg: var(--glow-lg);
+
+  /* Animations */
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-orbit: orbit 60s linear infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ═══════════════════════════════════════════════════
+   Keyframes
+   ═══════════════════════════════════════════════════ */
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes typewriter-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes slide-in-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+/* ═══════════════════════════════════════════════════
+   Base Styles
+   ═══════════════════════════════════════════════════ */
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: rgba(0, 240, 255, 0.2);
+  color: var(--text-primary);
+}
+
+/* ═══════════════════════════════════════════════════
+   Custom Scrollbar
+   ═══════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-tertiary) var(--bg-primary);
+}
+
+/* ═══════════════════════════════════════════════════
+   Utility Classes
+   ═══════════════════════════════════════════════════ */
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.border-gradient {
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  background-image: linear-gradient(var(--bg-secondary), var(--bg-secondary)),
+                    linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  background-origin: padding-box, border-box;
+}
+
+.glow-hover {
+  transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+}
+
+.glow-hover:hover {
+  box-shadow: var(--glow-sm);
+  border-color: var(--border-hover);
+}
+
+/* ═══════════════════════════════════════════════════
+   Reduced Motion
+   ═══════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
