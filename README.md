@@ -46,3 +46,9 @@ Abra [http://localhost:3000](http://localhost:3000) com o seu browser padrão e 
 ## 🌐 Deploy (GitHub Action)
 
 Este projeto está integrado ao Github Actions (`.github/workflows/deploy.yml`). A cada push para o braço (branch) principal, a plataforma criará um Build Otimizado do Node.js, transformará os pacotes e subirá automaticamente o diretório `/out` para rodar este aplicativo nos servidores de borda globais do GitHub.
+
+---
+
+<p align="center">
+  Desenvolvido por Iury Huebra
+</p>

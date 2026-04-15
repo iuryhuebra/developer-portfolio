@@ -28,7 +28,7 @@ export const pt = {
     tag: "// Contato",
     title: "Vamos conversar?",
     description: "Estou sempre aberto a novas oportunidades, colaborações em projetos ou apenas para bater um papo sobre tecnologia. Sinta-se à vontade para me contatar!",
-    footer: "Desenvolvido com ♡ por Iury Huebra",
+    footer: "Desenvolvido por Iury Huebra",
   },
   sidebar: {
     home: "Início",
@@ -69,7 +69,7 @@ export const en = {
     tag: "// Contact",
     title: "Let's talk?",
     description: "I'm always open to new opportunities, project collaborations, or just a chat about tech. Feel free to reach out!",
-    footer: "Developed with ♡ by Iury Huebra",
+    footer: "Developed by Iury Huebra",
   },
   sidebar: {
     home: "Home",
