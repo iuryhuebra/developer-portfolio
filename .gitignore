@@ -42,6 +42,3 @@ next-env.d.ts
 
 # agent
 /.agent
-
-#github
-/.github
