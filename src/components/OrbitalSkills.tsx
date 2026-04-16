@@ -44,7 +44,7 @@ export default function OrbitalSkills() {
         color: categoryColors.tools,
       },
     ];
-  }, []);
+  }, [skills]);
 
   return (
     <div className="relative mx-auto flex items-center justify-center -mb-20" style={{ width: 620, height: 620 }}>
@@ -55,7 +55,7 @@ export default function OrbitalSkills() {
 
       {/* Orbit rings */}
       {rings.map((ring) => (
-        <div key={ring.category} className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div key={ring.category} className="absolute inset-0 flex items-center justify-center pointer-events-none hover:z-50">
           {/* Ring border */}
           <div
             className="absolute rounded-full border"
@@ -84,7 +84,7 @@ export default function OrbitalSkills() {
               return (
                 <div
                   key={skill.name}
-                  className="absolute pointer-events-auto"
+                  className="absolute pointer-events-auto hover:z-50"
                   style={{
                     left: "50%",
                     top: "50%",
@@ -109,10 +109,12 @@ export default function OrbitalSkills() {
                       onMouseEnter={(e) => {
                         e.currentTarget.style.borderColor = skill.color;
                         e.currentTarget.style.boxShadow = `0 0 15px ${skill.color}40`;
+                        e.currentTarget.style.transform = "scale(1.1)";
                       }}
                       onMouseLeave={(e) => {
                         e.currentTarget.style.borderColor = "";
                         e.currentTarget.style.boxShadow = "";
+                        e.currentTarget.style.transform = "scale(1)";
                       }}
                     >
                       <skill.icon 
@@ -123,7 +125,7 @@ export default function OrbitalSkills() {
 
                     {/* Tooltip */}
                     <div
-                      className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-bg-secondary border border-border-subtle px-3 py-1.5 text-xs font-medium text-text-primary opacity-0 shadow-xl transition-all duration-200 group-hover:-top-12 group-hover:opacity-100 z-50"
+                      className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-bg-secondary border border-border-subtle px-3 py-1.5 text-xs font-medium text-text-primary opacity-0 shadow-xl transition-all duration-200 group-hover:-top-12 group-hover:opacity-100 z-[100]"
                     >
                       {skill.name}
                       <div className="absolute -bottom-1 left-1/2 h-2 w-2 -translate-x-1/2 rotate-45 border-b border-r border-border-subtle bg-bg-secondary" />

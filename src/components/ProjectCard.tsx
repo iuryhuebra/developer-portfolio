@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ExternalLink, GitBranch } from "lucide-react";
 import type { Project } from "@/data/projects";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -14,7 +15,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
   return (
     <div className="group relative grid items-center gap-8 md:grid-cols-2 md:gap-12">
-      {/* Image placeholder */}
+      {/* Image container */}
       <div
         className={`relative overflow-hidden rounded-xl border border-border-subtle bg-bg-secondary ${
           index % 2 === 1 ? "md:order-2" : ""
@@ -30,9 +31,19 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               backgroundSize: "32px 32px",
             }}
           />
-          <span className="relative font-mono text-lg text-text-muted">
-            {project.title}
-          </span>
+          
+          {project.image ? (
+            <Image 
+              src={project.image} 
+              alt={project.title}
+              fill
+              className="object-[100%_100%] transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <span className="relative font-mono text-lg text-text-muted">
+              {project.title}
+            </span>
+          )}
         </div>
 
         {/* Hover overlay */}

@@ -11,7 +11,8 @@ export interface Skill {
 import { 
   SiReact, SiJavascript, SiTypescript, SiHtml5, SiNodedotjs, SiDotnet, 
   SiGit, SiGithub, SiPostgresql, SiNextdotjs, SiReactrouter, SiFastify, 
-  SiPrisma, SiDrizzle, SiMysql, SiAnthropic, SiOpenai, SiGrafana, SiN8N
+  SiPrisma, SiDrizzle, SiMysql, SiAnthropic, SiOpenai, SiGrafana, SiN8N,
+  SiStyledcomponents, SiTailwindcss
 } from "react-icons/si";
 import { TbApi, TbDatabase, TbBrandCSharp, TbRoute, TbBrandPhp } from "react-icons/tb";
 
@@ -24,6 +25,8 @@ export const skills: Skill[] = [
   { name: "React Router", category: "frontend", icon: SiReactrouter, color: "#CA4245" },
   { name: "TanStack Router", category: "frontend", icon: TbRoute, color: "#FF4154" },
   { name: "HTML/CSS", category: "frontend", icon: SiHtml5, color: "#E34F26" },
+  { name: "Styled Components", category: "frontend", icon: SiStyledcomponents, color: "#DB7093" },
+  { name: "Tailwind CSS", category: "frontend", icon: SiTailwindcss, color: "#06B6D4" },
 
   // Backend & Databases
   { name: "Node.js", category: "backend", icon: SiNodedotjs, color: "#339933" },
